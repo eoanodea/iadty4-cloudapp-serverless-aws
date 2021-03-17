@@ -79,7 +79,7 @@ const create = (event, context, callback) => {
       // image_data = new Buffer(file.content, 'binary')
       image_data = new Buffer.from(file.content, "binary");
       image_type = file.contentType;
-      festivalData.image_path = `${image_name}-${file.filename}`;
+      festivalData.image_path = `festivals/${image_name}-${file.filename}`;
     }
 
     connectToDatabase().then(() => {
@@ -88,7 +88,7 @@ const create = (event, context, callback) => {
           console.log("New Festival Created");
 
           const params = {
-            Bucket: "festival-app-scenario-2",
+            Bucket: process.env.aws_bucket_name,
             Key: `upload/${festivalData.image_path}`,
             Body: image_data,
             ContentType: image_type,

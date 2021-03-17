@@ -20,6 +20,7 @@ provider:
     aws_access_key_id: ${param:aws_access_key_id}
     aws_secret_access_key: ${param:aws_secret_access_key}
     aws_session_token: ${param:aws_session_token}
+    aws_bucket_name: ${param:aws_bucket_name}
 
 functions:
   festival_get_post:

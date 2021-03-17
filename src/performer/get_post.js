@@ -78,7 +78,7 @@ const create = (event, context, callback) => {
       // image_data = new Buffer(file.content, 'binary')
       image_data = new Buffer.from(file.content, "binary");
       image_type = file.contentType;
-      performerData.image_path = `${image_name}-${file.filename}`;
+      performerData.image_path = `performers/${image_name}-${file.filename}`;
     }
 
     connectToDatabase().then(() => {
@@ -87,7 +87,7 @@ const create = (event, context, callback) => {
           console.log("New Performer Created");
 
           const params = {
-            Bucket: "performer-app-scenario-2",
+            Bucket: process.env.aws_bucket_name,
             Key: `upload/${performerData.image_path}`,
             Body: image_data,
             ContentType: image_type,

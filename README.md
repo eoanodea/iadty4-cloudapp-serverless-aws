@@ -27,4 +27,5 @@ A full list of possible API requests are published [here](https://documenter.get
    - `aws_access_key_id` - AWS access key
    - `aws_secret_access_key` - AWS Secret
    - `aws_session_token` - AWS Session token
+   - `aws_bucket_name` - Name of the AWS S3 Bucket (must already exist)
 4. Run `sls deploy` to deploy the application

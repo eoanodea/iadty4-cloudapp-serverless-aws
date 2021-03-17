@@ -78,7 +78,7 @@ const create = (event, context, callback) => {
       // image_data = new Buffer(file.content, 'binary')
       image_data = new Buffer.from(file.content, "binary");
       image_type = file.contentType;
-      stageData.image_path = `${image_name}-${file.filename}`;
+      stageData.image_path = `stages/${image_name}-${file.filename}`;
     }
 
     connectToDatabase().then(() => {
@@ -87,7 +87,7 @@ const create = (event, context, callback) => {
           console.log("New Stage Created");
 
           const params = {
-            Bucket: "stage-app-scenario-2",
+            Bucket: process.env.aws_bucket_name,
             Key: `upload/${stageData.image_path}`,
             Body: image_data,
             ContentType: image_type,

@@ -3,13 +3,6 @@
 const connectToDatabase = require("../../db.js");
 const Show = require("./Show");
 const parser = require("lambda-multipart-parser");
-const AWS = require("aws-sdk");
-
-const s3 = new AWS.S3({
-  aws_access_key_id: process.env.aws_access_key_id,
-  aws_secret_access_key: process.env.aws_secret_access_key,
-  aws_session_token: process.env.aws_session_token,
-});
 
 exports.handler = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
