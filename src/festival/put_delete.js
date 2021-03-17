@@ -2,6 +2,7 @@
 
 const connectToDatabase = require("../../db.js");
 const Festival = require("./Festival");
+const { buildS3URL } = require("../helpers/s3.js");
 
 exports.handler = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;

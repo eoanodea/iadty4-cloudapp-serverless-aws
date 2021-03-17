@@ -4,7 +4,6 @@ const connectToDatabase = require("../../db.js");
 const Festival = require("./Festival");
 const parser = require("lambda-multipart-parser");
 const AWS = require("aws-sdk");
-const { buildS3URL } = require("../helpers/s3.js");
 
 const s3 = new AWS.S3({
   aws_access_key_id: process.env.aws_access_key_id,
