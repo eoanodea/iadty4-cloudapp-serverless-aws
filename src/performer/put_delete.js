@@ -39,8 +39,8 @@ const readData = (event, context, callback) => {
         if (!data) {
           return callback(null, handleResponse(404, "No Performer Found"));
         }
-        // let img = `${process.env.STATIC_FILES_URL}${data.image_path}`;
-        // data.image_path = img;
+        let img = buildS3URL(data.image_path);
+        data.image_path = img;
         return callback(null, handleResponse(200, data));
       })
       .catch((err) => {
