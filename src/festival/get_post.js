@@ -44,8 +44,8 @@ function read(event, context, callback) {
       .then((data) => {
         console.log(data);
         if (data) {
-          //   let img = `${process.env.STATIC_FILES_URL}${data.image_path}`;
-          //   data.image_path = img;
+          let img = `${process.env.aws_bucket_name}/${data.image_path}`;
+          data.image_path = img;
           return callback(null, handleResponse(200, data));
         }
 
