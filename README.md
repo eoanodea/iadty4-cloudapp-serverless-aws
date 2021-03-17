@@ -8,6 +8,10 @@ A [Serverless](https://www.serverless.com/) application converted from a Node.JS
 
 The application utilizes serverless to automate the AWS proceedure of creating API routes, Lambda functions, Layers, S3 Buckets. It also allows the application to be easily converted to another cloud provider if required.
 
+### Documentation
+
+A full list of possible API requests are published [here](https://documenter.getpostman.com/view/9152223/Tz5tYG2M).
+
 ### What you need to run this code
 
 1. Node (14.15.4)
