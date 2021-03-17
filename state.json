@@ -1,0 +1,53 @@
+{
+  "$": {
+    "serviceId": "6sclfiihv0"
+  },
+  "rest-api-app": {
+    "instanceId": "6sclfiihv0-jqix4qxc"
+  },
+  "rest-api-app:list": {
+    "instanceId": "6sclfiihv0-cnjpljh9"
+  },
+  "rest-api-app:create": {
+    "instanceId": "6sclfiihv0-f3skb7zu"
+  },
+  "rest-api-app:festivalsApi": {
+    "instanceId": "6sclfiihv0-f9i9c1qw"
+  },
+  "rest-api-app:list:defaultRole": {
+    "instanceId": "6sclfiihv0-e72hdl0p",
+    "type": "aws-iam-role",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../.npm-global/lib/node_modules/serverless-components/registry/aws-iam-role",
+    "inputs": {
+      "name": "func-6sclfiihv0-cnjpljh9-execution-role",
+      "service": "lambda.amazonaws.com"
+    },
+    "state": {
+      "arn": "arn:aws:iam::155183694327:role/func-6sclfiihv0-cnjpljh9-execution-role",
+      "service": "lambda.amazonaws.com",
+      "policy": {
+        "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+      },
+      "name": "func-6sclfiihv0-cnjpljh9-execution-role"
+    }
+  },
+  "rest-api-app:create:defaultRole": {
+    "instanceId": "6sclfiihv0-7thdvixi",
+    "type": "aws-iam-role",
+    "internallyManaged": true,
+    "rootPath": "../../../../../../../.npm-global/lib/node_modules/serverless-components/registry/aws-iam-role",
+    "inputs": {
+      "name": "func-6sclfiihv0-f3skb7zu-execution-role",
+      "service": "lambda.amazonaws.com"
+    },
+    "state": {
+      "arn": "arn:aws:iam::155183694327:role/func-6sclfiihv0-f3skb7zu-execution-role",
+      "service": "lambda.amazonaws.com",
+      "policy": {
+        "arn": "arn:aws:iam::aws:policy/AdministratorAccess"
+      },
+      "name": "func-6sclfiihv0-f3skb7zu-execution-role"
+    }
+  }
+}

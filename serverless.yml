@@ -1,0 +1,74 @@
+org: eoanod
+app: cloud-app-scenario-2
+service: cloud-app-scenario-2-service
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  apiGateway:
+    shouldStartNameWithService: true
+    binaryMediaTypes:
+      - "image/png"
+      - "image/jpeg"
+      - "multipart/form-data"
+  lambdaHashingVersion: 20201221
+  environment:
+    DB_ATLAS_URL: ${param:DB_ATLAS_URL}
+    aws_access_key_id: ${param:aws_access_key_id}
+    aws_secret_access_key: ${param:aws_secret_access_key}
+    aws_session_token: ${param:aws_session_token}
+
+functions:
+  festival_get_post:
+    handler: src/festival/get_post.handler
+    memorySize: 128
+    description: Get all Festivals and create a new festival
+    events:
+      - http:
+          path: /festivals
+          method: post
+      - http:
+          path: /festivals
+          method: get
+  festival_put_delete:
+    handler: src/festival/put_delete.handler
+    memorySize: 128
+    description: Get a single Festival, update or delete one
+    events:
+      - http:
+          path: /festivals/{id}
+          method: get
+      - http:
+          path: /festivals/{id}
+          method: put
+      - http:
+          path: /festivals/{id}
+          method: delete
+  stage_get_post:
+    handler: src/stage/get_post.handler
+    memorySize: 128
+    description: Get all Stages and create a new stage
+    events:
+      - http:
+          path: /stages
+          method: post
+      - http:
+          path: /stages
+          method: get
+  stage_put_delete:
+    handler: src/stage/put_delete.handler
+    memorySize: 128
+    description: Get a single Stage, update or delete one
+    events:
+      - http:
+          path: /stages/{id}
+          method: get
+      - http:
+          path: /stages/{id}
+          method: put
+      - http:
+          path: /stages/{id}
+          method: delete
