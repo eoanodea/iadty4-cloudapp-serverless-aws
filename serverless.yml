@@ -72,3 +72,53 @@ functions:
       - http:
           path: /stages/{id}
           method: delete
+  performer_get_post:
+    handler: src/performer/get_post.handler
+    memorySize: 128
+    description: Get all Performers and create a new performer
+    events:
+      - http:
+          path: /performers
+          method: post
+      - http:
+          path: /performers
+          method: get
+  performer_put_delete:
+    handler: src/performer/put_delete.handler
+    memorySize: 128
+    description: Get a single Performer, update or delete one
+    events:
+      - http:
+          path: /performers/{id}
+          method: get
+      - http:
+          path: /performers/{id}
+          method: put
+      - http:
+          path: /performers/{id}
+          method: delete
+  show_get_post:
+    handler: src/show/get_post.handler
+    memorySize: 128
+    description: Get all Shows and create a new show
+    events:
+      - http:
+          path: /shows
+          method: post
+      - http:
+          path: /shows
+          method: get
+  show_put_delete:
+    handler: src/show/put_delete.handler
+    memorySize: 128
+    description: Get a single Show, update or delete one
+    events:
+      - http:
+          path: /shows/{id}
+          method: get
+      - http:
+          path: /shows/{id}
+          method: put
+      - http:
+          path: /shows/{id}
+          method: delete

@@ -69,6 +69,7 @@ const create = (event, context, callback) => {
       title: parsedEvent.title,
       description: parsedEvent.description,
       location: parsedEvent.location,
+      festival_id: parsedEvent.festival_id,
     };
 
     if (parsedEvent.files[0]) {
