@@ -1,6 +1,6 @@
 "use strict";
 
-const connectToDatabase = require("../../db.js");
+const connectToDatabase = require("../layers/db.js");
 const Festival = require("./Festival");
 const buildS3URL = require("../layers/s3.js");
 
