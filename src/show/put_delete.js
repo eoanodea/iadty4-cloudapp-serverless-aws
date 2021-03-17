@@ -1,6 +1,6 @@
 "use strict";
 
-const connectToDatabase = require("../../db.js");
+const connectToDatabase = require("../layers/db.js");
 const Show = require("./Show");
 
 exports.handler = (event, context, callback) => {

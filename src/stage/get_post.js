@@ -1,6 +1,6 @@
 "use strict";
 
-const connectToDatabase = require("../../db.js");
+const connectToDatabase = require("../layers/db.js");
 const Stage = require("./Stage");
 const parser = require("lambda-multipart-parser");
 const AWS = require("aws-sdk");
