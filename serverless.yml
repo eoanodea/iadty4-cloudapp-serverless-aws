@@ -14,6 +14,7 @@ provider:
       - "image/png"
       - "image/jpeg"
       - "multipart/form-data"
+      - "application/json"
   lambdaHashingVersion: 20201221
   environment:
     DB_ATLAS_URL: ${param:DB_ATLAS_URL}
