@@ -19,5 +19,10 @@ module.exports = connectToDatabase = () => {
     .then((db) => {
       console.log("New database connection established");
       isConnected = db.connections[0].readyState;
+    })
+    .catch((err) => {
+      console.log("Error connecting to database", err);
+      isConnected = null;
+      Promise.reject();
     });
 };
