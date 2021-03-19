@@ -32,11 +32,13 @@ functions:
       - http:
           path: /festivals
           method: post
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /festivals
           method: get
-          cors: true
+          cors:
+            origin: "*"
   festival_put_delete:
     handler: src/festival/put_delete.handler
     memorySize: 128
@@ -45,15 +47,18 @@ functions:
       - http:
           path: /festivals/{id}
           method: get
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /festivals/{id}
           method: put
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /festivals/{id}
           method: delete
-          cors: true
+          cors:
+            origin: "*"
   stage_get_post:
     handler: src/stage/get_post.handler
     memorySize: 128
@@ -62,11 +67,13 @@ functions:
       - http:
           path: /stages
           method: post
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /stages
           method: get
-          cors: true
+          cors:
+            origin: "*"
   stage_put_delete:
     handler: src/stage/put_delete.handler
     memorySize: 128
@@ -75,15 +82,18 @@ functions:
       - http:
           path: /stages/{id}
           method: get
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /stages/{id}
           method: put
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /stages/{id}
           method: delete
-          cors: true
+          cors:
+            origin: "*"
   performer_get_post:
     handler: src/performer/get_post.handler
     memorySize: 128
@@ -92,11 +102,13 @@ functions:
       - http:
           path: /performers
           method: post
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /performers
           method: get
-          cors: true
+          cors:
+            origin: "*"
   performer_put_delete:
     handler: src/performer/put_delete.handler
     memorySize: 128
@@ -105,15 +117,18 @@ functions:
       - http:
           path: /performers/{id}
           method: get
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /performers/{id}
           method: put
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /performers/{id}
           method: delete
-          cors: true
+          cors:
+            origin: "*"
   show_get_post:
     handler: src/show/get_post.handler
     memorySize: 128
@@ -122,11 +137,13 @@ functions:
       - http:
           path: /shows
           method: post
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /shows
           method: get
-          cors: true
+          cors:
+            origin: "*"
   show_put_delete:
     handler: src/show/put_delete.handler
     memorySize: 128
@@ -135,12 +152,15 @@ functions:
       - http:
           path: /shows/{id}
           method: get
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /shows/{id}
           method: put
-          cors: true
+          cors:
+            origin: "*"
       - http:
           path: /shows/{id}
           method: delete
-          cors: true
+          cors:
+            origin: "*"
