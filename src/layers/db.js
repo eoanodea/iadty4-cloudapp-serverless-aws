@@ -12,6 +12,7 @@ module.exports = connectToDatabase = () => {
   return mongoose
     .connect(process.env.DB_ATLAS_URL, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
       bufferCommands: false,
       bufferMaxEntries: 0,
     })

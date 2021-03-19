@@ -51,6 +51,7 @@ function read(event, context, callback) {
 }
 
 const create = (event, context, callback) => {
+  console.log(event.body);
   const showData = JSON.parse(event.body);
 
   connectToDatabase().then(() => {
