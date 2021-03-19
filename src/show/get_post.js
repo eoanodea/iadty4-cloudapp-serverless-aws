@@ -5,6 +5,7 @@ const Show = require("./Show");
 const parser = require("lambda-multipart-parser");
 
 exports.handler = (event, context, callback) => {
+  console.log("incoming request on show get_post", event.httpMethod);
   context.callbackWaitsForEmptyEventLoop = false;
 
   switch (event.httpMethod) {
@@ -58,6 +59,7 @@ function read(event, context, callback) {
 }
 
 const create = (event, context, callback) => {
+  console.log("incoming create!");
   console.log(event.body);
   const showData = JSON.parse(event.body);
 
