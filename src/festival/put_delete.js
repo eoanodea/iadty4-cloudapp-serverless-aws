@@ -159,7 +159,6 @@ const updateData = (event, context, callback) => {
 
 const deleteData = (event, context, callback) => {
   connectToDatabase().then(() => {
-    // let image_path = "";
     Festival.findById(event.pathParameters.id)
       .then((data) => {
         if (!data) {
@@ -185,21 +184,7 @@ const deleteData = (event, context, callback) => {
               return callback(null, handleResponse(422, err));
             });
         }
-        // image_path = data.image_path;
-        return data.remove();
       })
-      // .then((data) => {
-      //   console.log("Festival removed!");
-
-      //   ////// delete the image file/////
-      //   // fs.unlink(`${appRoot}/views/uploads/${image_path}`, (err) => {
-      //   //   if (err) throw err;
-      //   //   console.log(`${image_path} was deleted`);
-      //   // });
-      //   ////////////////////////////
-
-      //   return callback(null, handleResponse(200, data));
-      // })
       .catch((err) => {
         console.error("Error finding festival", err);
 
