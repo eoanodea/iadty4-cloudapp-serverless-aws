@@ -51,26 +51,24 @@ function read(event, context, callback) {
 }
 
 const create = (event, context, callback) => {
-  parser.parse(event).then((parsedEvent) => {
-    let showData = parsedEvent;
+  const showData = JSON.parse(event.body);
 
-    connectToDatabase().then(() => {
-      Show.create(showData)
-        .then((data) => {
-          console.log("New Show Created");
-          return callback(null, handleResponse(201, data));
-        })
-        .catch((err) => {
-          if (err.name === "ValidationError") {
-            console.error("Error Validating!", err);
+  connectToDatabase().then(() => {
+    Show.create(showData)
+      .then((data) => {
+        console.log("New Show Created");
+        return callback(null, handleResponse(201, data));
+      })
+      .catch((err) => {
+        if (err.name === "ValidationError") {
+          console.error("Error Validating!", err);
 
-            return callback(null, handleResponse(422, err));
-          } else {
-            console.error(err);
+          return callback(null, handleResponse(422, err));
+        } else {
+          console.error(err);
 
-            return callback(null, handleResponse(500, err));
-          }
-        });
-    });
+          return callback(null, handleResponse(500, err));
+        }
+      });
   });
 };
