@@ -51,9 +51,13 @@ const readData = (event, context, callback) => {
 };
 
 const updateData = (event, context, callback) => {
-  connectToDatabase().then(() => {
-    let showData = JSON.parse(event.body);
+  let buff = Buffer.from(event.body, "base64");
+  let eventBodyStr = buff.toString("UTF-8");
+  let eventBody = JSON.parse(eventBodyStr);
 
+  let showData = eventBody;
+
+  connectToDatabase().then(() => {
     // if (req.file) {
     //   showData.image_path = req.file.filename;
     // }
