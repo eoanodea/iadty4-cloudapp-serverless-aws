@@ -1,8 +1,8 @@
 "use strict";
 
-const connectToDatabase = require("../layers/db.js");
+const connectToDatabase = require("/opt/nodejs/db.js");
 const Performer = require("./Performer");
-const buildS3URL = require("../layers/s3.js");
+const buildS3URL = require("/opt/nodejs/s3.js");
 
 exports.handler = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;

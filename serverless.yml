@@ -23,10 +23,18 @@ provider:
     aws_session_token: ${param:aws_session_token}
     aws_bucket_name: ${param:aws_bucket_name}
 
+layers:
+  commonLibs:
+    path: src/layer
+    compatibleRuntimes:
+      - nodejs12.x
+
 functions:
   festival_get_post:
     handler: src/festival/get_post.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get all Festivals and create a new festival
     events:
       - http:
@@ -42,6 +50,8 @@ functions:
   festival_put_delete:
     handler: src/festival/put_delete.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get a single Festival, update or delete one
     events:
       - http:
@@ -62,6 +72,8 @@ functions:
   stage_get_post:
     handler: src/stage/get_post.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get all Stages and create a new stage
     events:
       - http:
@@ -77,6 +89,8 @@ functions:
   stage_put_delete:
     handler: src/stage/put_delete.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get a single Stage, update or delete one
     events:
       - http:
@@ -97,6 +111,8 @@ functions:
   performer_get_post:
     handler: src/performer/get_post.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get all Performers and create a new performer
     events:
       - http:
@@ -112,6 +128,8 @@ functions:
   performer_put_delete:
     handler: src/performer/put_delete.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get a single Performer, update or delete one
     events:
       - http:
@@ -132,6 +150,8 @@ functions:
   show_get_post:
     handler: src/show/get_post.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get all Shows and create a new show
     events:
       - http:
@@ -147,6 +167,8 @@ functions:
   show_put_delete:
     handler: src/show/put_delete.handler
     memorySize: 128
+    layers:
+      - { Ref: CommonLibsLambdaLayer }
     description: Get a single Show, update or delete one
     events:
       - http:
