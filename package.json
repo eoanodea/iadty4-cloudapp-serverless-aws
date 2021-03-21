@@ -4,7 +4,6 @@
   "description": "A Node.JS / Express API converted to a Serverless application and deployed to AWS",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd ./layer/nodejs && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
