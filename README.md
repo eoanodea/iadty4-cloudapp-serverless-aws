@@ -1,6 +1,6 @@
 # BSc (Hons) in Creative Computing - Year 4
 
-## Cloud Application Development - CA#2 Scenario 2
+## ☁️ Cloud Application Development - CA#2 Scenario 2
 
 ### Description
 
