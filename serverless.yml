@@ -15,13 +15,22 @@ provider:
       - "image/jpeg"
       - "multipart/form-data"
       - "application/json"
+    authorizers:
+      someJwtAuthorizer:
+        identitySource: $request.header.Authorization
+        issuerUrl: https://cognito-idp.${param:aws_cognito_region}.amazonaws.com/${param:aws_cognito_pool}
+        audience: ${param:aws_cognito_clientId}
   lambdaHashingVersion: 20201221
+
   environment:
     DB_ATLAS_URL: ${param:DB_ATLAS_URL}
     aws_access_key_id: ${param:aws_access_key_id}
     aws_secret_access_key: ${param:aws_secret_access_key}
     aws_session_token: ${param:aws_session_token}
     aws_bucket_name: ${param:aws_bucket_name}
+    aws_cognito_clientId: ${param:aws_cognito_clientId}
+    aws_cognito_region: ${param:aws_cognito_region}
+    aws_cognito_pool: ${param:aws_cognito_pool}
 
 layers:
   commonLibs:
@@ -40,11 +49,14 @@ functions:
       - http:
           path: /festivals
           method: post
+          authorizer:
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /festivals
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   festival_put_delete:
@@ -57,16 +69,19 @@ functions:
       - http:
           path: /festivals/{id}
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /festivals/{id}
           method: put
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /festivals/{id}
           method: delete
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   stage_get_post:
@@ -79,11 +94,13 @@ functions:
       - http:
           path: /stages
           method: post
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /stages
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   stage_put_delete:
@@ -96,16 +113,19 @@ functions:
       - http:
           path: /stages/{id}
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /stages/{id}
           method: put
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /stages/{id}
           method: delete
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   performer_get_post:
@@ -118,11 +138,13 @@ functions:
       - http:
           path: /performers
           method: post
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /performers
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   performer_put_delete:
@@ -135,16 +157,19 @@ functions:
       - http:
           path: /performers/{id}
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /performers/{id}
           method: put
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /performers/{id}
           method: delete
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   show_get_post:
@@ -157,11 +182,13 @@ functions:
       - http:
           path: /shows
           method: post
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /shows
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
   show_put_delete:
@@ -174,15 +201,18 @@ functions:
       - http:
           path: /shows/{id}
           method: get
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /shows/{id}
           method: put
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
       - http:
           path: /shows/{id}
           method: delete
+            arn: arn:aws:cognito-idp:${param:aws_cognito_pool}:userpool/${param:aws_cognito_identity_pool}
           cors:
             origin: "*"
