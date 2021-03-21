@@ -28,4 +28,7 @@ A full list of possible API requests are published [here](https://documenter.get
    - `aws_secret_access_key` - AWS Secret
    - `aws_session_token` - AWS Session token
    - `aws_bucket_name` - Name of the AWS S3 Bucket (must already exist)
+   - `aws_cognito_pool` - AWS Cognito Pool
+   - `aws_cognito_identity_pool` - AWS Cognito Pool Identity
+   - `aws_cognito_clientId` - AWS Cognito Cognito App client ID
 4. Run `sls deploy` to deploy the application
