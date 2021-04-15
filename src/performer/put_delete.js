@@ -62,9 +62,8 @@ const updateData = (event, context, callback) => {
     let performerData = {
       title: parsedEvent.title,
       description: parsedEvent.description,
-      city: parsedEvent.city,
-      start_date: parsedEvent.start_date,
-      end_date: parsedEvent.end_date,
+      contact_email: parsedEvent.contact_email,
+      contact_phone: parsedEvent.contact_phone,
     };
 
     if (parsedEvent.files[0]) {

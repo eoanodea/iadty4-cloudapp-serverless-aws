@@ -62,9 +62,9 @@ const updateData = (event, context, callback) => {
     let stageData = {
       title: parsedEvent.title,
       description: parsedEvent.description,
-      city: parsedEvent.city,
-      start_date: parsedEvent.start_date,
-      end_date: parsedEvent.end_date,
+      location: parsedEvent.location,
+      festival_id: parsedEvent.festival_id,
+      festival_title: parsedEvent.festival_title,
     };
 
     if (parsedEvent.files[0]) {
